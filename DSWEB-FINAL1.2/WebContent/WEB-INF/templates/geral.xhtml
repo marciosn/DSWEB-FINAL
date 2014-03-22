@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	 	xmlns:f="http://java.sun.com/jsf/core">
+	 	<f:view locale="#{localeController.currentLocale}"/>
+<h:head>
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+	
+	<title>DSWEB-FINAL</title>
+	<h:outputScript library="js" name="jquery.js"></h:outputScript>
+	<h:outputScript library="js" name="bootstrap-transition.js"></h:outputScript>
+	<h:outputScript library="js" name="bootstrap-alert.js"></h:outputScript>
+	<h:outputScript library="js" name="prettyCheckable.js"></h:outputScript>
+	<h:outputScript library="js" name="bootstrap-modal.js"></h:outputScript>
+	<h:outputScript library="js" name="bootstrap-dropdown.js"></h:outputScript>
+	<h:outputScript library="js" name="bootstrap-scrollspy.js"></h:outputScript>
+	<h:outputScript library="js" name="bootstrap-tooltip.js"></h:outputScript>
+	<h:outputScript library="js" name="bootstrap-popover.js"></h:outputScript>
+	<h:outputScript library="js" name="bootstrap-button.js"></h:outputScript>
+	<h:outputScript library="js" name="bootstrap-collapse.js"></h:outputScript>
+	<h:outputScript library="js" name="bootstrap-carousel.js"></h:outputScript>
+	<h:outputScript library="js" name="bootstrap-typeahead.js"></h:outputScript>
+	<h:outputScript library="js" name="main.js"></h:outputScript>
+
+	<h:outputStylesheet library="css" name="bootstrap.css"></h:outputStylesheet>
+	<h:outputStylesheet library="css" name="app.css"></h:outputStylesheet>
+	<h:outputStylesheet library="css" name="animate.css"></h:outputStylesheet>
+	<h:outputStylesheet library="css" name="style.css"></h:outputStylesheet>
+	<h:outputStylesheet library="css" name="prettyCheckable.css"></h:outputStylesheet>
+	<h:outputStylesheet library="css" name="bootstrap-responsive.css"></h:outputStylesheet>
+	
+<style type="text/css">
+	.container{
+	
+	}
+	.content{
+	background-color: #FFFFFF;
+	width: 980px;
+	height: 900px;
+	margin-left: 320px;
+	padding: 15px;
+	}
+	.red{
+      color: #FF3333;
+      }
+     #topo{
+     background: #DDDCE2 url(img/back04.png) repeat left top;
+     box-shadow: 10px 10px 5px #888;
+     }
+     #img1{
+     margin-top: -300px;
+     }
+     #img2{
+     margin-top: -500px;
+     }
+     #left{
+     height: 700px;
+     }
+</style>
+	
+</h:head>
+<h:body>
+
+	<ui:insert name="cabecalho">
+		<ui:include src="/WEB-INF/templates/cabecalho.xhtml" />
+	</ui:insert>
+	<ui:insert name="barra">
+		<ui:include src="/WEB-INF/templates/barra.xhtml" />
+	</ui:insert>
+	
+	<div class="content">
+	<ui:insert name="conteudo">
+	Espaço para o conteúdo da página.
+	</ui:insert>
+	</div>
+    	 		
+</h:body>
+</html>

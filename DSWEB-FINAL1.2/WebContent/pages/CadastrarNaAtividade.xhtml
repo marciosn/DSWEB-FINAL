@@ -1,0 +1,81 @@
+<ui:composition template="/WEB-INF/templates/geral.xhtml"
+		xmlns="http://www.w3.org/1999/xhtml"
+		xmlns:h="http://java.sun.com/jsf/html"
+		xmlns:f="http://java.sun.com/jsf/core"
+	 	xmlns:ui="http://java.sun.com/jsf/facelets">
+	 	
+	
+	<ui:define name="conteudo">
+		<h1>
+		<h:outputText value="#{msg.select_user}" />
+		</h1>
+		<legend></legend>
+		
+		<h:dataTable styleClass="table table-striped table-bordered table-hover table-condensed" 
+		value="#{usuarioBean.usuariosBanco}" var="usuario" >
+		
+		<h:column>
+			<f:facet name="header">
+				<h:outputText value="#{msg.id}" />
+			</f:facet>
+				<h:outputText value="#{usuario.id}" />
+		</h:column>
+		
+				
+		<h:column>
+			<f:facet name="header">
+				<h:outputText value="#{msg.name}" />
+			</f:facet>
+				<h:outputText value="#{usuario.nome}" />
+		</h:column>
+		
+		<h:column>
+			<f:facet name="header">
+				<h:outputText value="#{msg.address}" />
+			</f:facet>
+				<h:outputText value="#{usuario.endereco}" />
+		</h:column>
+		
+		<h:column>
+			<f:facet name="header">
+				<h:outputText value="#{msg.email}" />
+			</f:facet>
+				<h:outputText value="#{usuario.email}" />
+		</h:column>
+		
+		<h:column>
+			<f:facet name="header">
+				<h:outputText value="#{msg.city}" />
+			</f:facet>
+				<h:outputText value="#{usuario.cidade}" />
+		</h:column>
+		
+		<h:column>
+			<f:facet name="header">
+				<h:outputText value="#{msg.phone}" />
+			</f:facet>
+				<h:outputText value="#{usuario.telefone}" />
+		</h:column>
+		
+		<h:column>
+			<f:facet name="header">
+				<h:outputText value="#{msg.uf}" />
+			</f:facet>
+				<h:outputText value="#{usuario.uf}" />
+		</h:column>
+		
+		<h:column>
+		<h:form>
+				
+			<h:commandButton value="#{msg.select}" action="#{atividadeBean.AddUsuarioInAtividade}" class="btn btn-primary">
+			<f:setPropertyActionListener target="#{atividadeBean.usuario}" value="#{usuario}" />
+			<f:setPropertyActionListener target="#{atividadeBean.id2}" value="#{usuario.id}" />
+			</h:commandButton>
+				
+		</h:form>
+		</h:column>
+		</h:dataTable>
+		
+	</ui:define>
+
+</ui:composition>

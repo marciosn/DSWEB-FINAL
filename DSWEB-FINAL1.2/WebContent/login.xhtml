@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	 	xmlns:f="http://java.sun.com/jsf/core">
+<h:head>
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+	<title>DSWEB-FINAL</title>
+	<h:outputStylesheet library="css" name="style1.css"></h:outputStylesheet>
+	<h:outputStylesheet library="css" name="style2.css"></h:outputStylesheet>
+	<h:outputStylesheet library="css" name="style3.css"></h:outputStylesheet>
+	
+		    <style type="text/css">       
+	        .row {
+	            padding: 80px 0px;
+	        }   
+	        .row + .row {
+	            margin-top: 10px;
+	            margin-bottom: 10px;
+	        }
+	        .red{
+      color: #FF3333;
+      }           
+	    </style>
+	
+</h:head>
+<h:body>
+
+		<div class="block white">
+        <div class="container">
+            <div class="row">
+                <div class="span6">
+                    <h1>Welcome to SGA!</h1>
+                    <h:messages />
+                    <hr/>
+                    <ul>
+                        <li>Sistema Gerenciamento de Atividades.</li>
+                        <li>Username: marcio</li>
+                        <li>Password: 123</li>
+                        <li>Márcio Souza 0324124</li>
+                    </ul>
+                </div>
+                <div class="offset1 span5">
+                    <div class="clear-form">                        
+                        <h:form>               
+                            <div class="form-heading">
+                                <h3>Sign In</h3>                               
+                            </div>  
+                            <div class="form-body">
+                            	<h:outputLabel  for="username" value="UserName" />
+                                <h:inputText id="username" label="nome" value="#{login.nome}" class="input-block-level"  required="true"/><h:message for="nome" class="red"/>
+                                <h:outputLabel for="password" value="Password" />
+                                <h:inputSecret id="password" label="password" value="#{login.password}" class="input-block-level" required="true"/><h:message for="password" class="red"/>   
+                                <div class="body-split">
+                                    <div class="left-col">
+                                      
+                                    </div>
+                                    <div class="right-col pull-left">
+                                    	<h:commandButton action="#{login.loginBean}" value="Login" class="btn btn-blue pull-right"/>                         
+                              
+                                    </div>
+                                </div>                
+                            </div>                                 
+                            <div class="form-footer">                          
+                                <hr/>
+                                <p class="center">
+                                    <a href="#">Forgot your password?</a>
+                                </p>
+                            </div>                
+                        </h:form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+		 		
+</h:body>
+</html>

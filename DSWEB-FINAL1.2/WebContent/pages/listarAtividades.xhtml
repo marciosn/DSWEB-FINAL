@@ -1,0 +1,79 @@
+<ui:composition template="/WEB-INF/templates/geral.xhtml"
+		xmlns="http://www.w3.org/1999/xhtml"
+		xmlns:h="http://java.sun.com/jsf/html"
+		xmlns:f="http://java.sun.com/jsf/core"
+	 	xmlns:ui="http://java.sun.com/jsf/facelets">
+<f:view locale="#{localeController.currentLocale}"/> 	
+	
+	<ui:define name="conteudo">
+		<h1>
+		<h:outputText value="#{msg.list_activity}" />
+		</h1>
+		<legend></legend>
+		
+		<h:dataTable styleClass="table table-striped table-bordered table-hover table-condensed" 
+		value="#{atividadeBean.atividadeBanco}" var="atividade" rendered="#{not empty atividadeBean.atividadeBanco}">
+		
+		<h:column>
+			<f:facet name="header">
+				<h:outputText value="#{msg.cod}" />
+			</f:facet>
+				<h:outputText value="#{atividade.codigo}" />
+		</h:column>
+		
+		<h:column>
+			<f:facet name="header">
+				<h:outputText value="#{msg.description}" />
+			</f:facet>
+				<h:outputText value="#{atividade.descricao}" />
+		</h:column>
+		
+		<h:column>
+			<f:facet name="header">
+				<h:outputText value="#{msg.acolyte}" />
+			</f:facet>
+				<h:outputText value="#{atividade.ministrante}" />
+		</h:column>
+		
+		<h:column>
+			<f:facet name="header">
+				<h:outputText value="#{msg.participants}" />
+			</f:facet>
+				<h:outputText value="#{atividade.quantidadePart}" />
+		</h:column>
+		
+		<h:column>
+			<f:facet name="header">
+				<h:outputText value="#{msg.value}" />
+			</f:facet>
+				<h:outputText value="#{atividade.valor}" />
+		</h:column>
+		
+		<h:column>
+			<f:facet name="header">
+				<h:outputText value="" />
+			</f:facet>
+	
+				<h:form>
+				
+				<h:commandButton value="#{msg.del}" action="#{atividadeBean.deletaAtividade}" 
+				onclick="return confirm ('CONFIRME PARA DELETAR O USUARIO')" class="btn btn-primary">
+				<f:setPropertyActionListener target="#{atividadeBean.atividade}" value="#{atividade}" />
+				</h:commandButton>
+				
+				<h:commandButton value="#{msg.show}" action="UsuarioInAtividades" class="btn btn-primary">
+				<f:setPropertyActionListener target="#{atividadeBean.id}" value="#{atividade.codigo}" />
+				</h:commandButton>
+								
+				<h:commandButton value="#{msg.add}" action="CadastrarNaAtividade" class="btn btn-primary">
+				<f:setPropertyActionListener target="#{atividadeBean.atividade}" value="#{atividade}" />
+				</h:commandButton>
+				</h:form>
+				
+		</h:column>
+		
+		</h:dataTable>
+		
+	</ui:define>
+
+</ui:composition>

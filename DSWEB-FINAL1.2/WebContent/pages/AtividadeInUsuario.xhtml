@@ -1,0 +1,57 @@
+<ui:composition template="/WEB-INF/templates/geral.xhtml"
+		xmlns="http://www.w3.org/1999/xhtml"
+		xmlns:h="http://java.sun.com/jsf/html"
+		xmlns:f="http://java.sun.com/jsf/core"
+	 	xmlns:ui="http://java.sun.com/jsf/facelets">
+	 	
+	
+	<ui:define name="conteudo">
+		<h1>
+		<h:outputText value="Atividades desse Usuario" />
+		</h1>
+		<legend></legend>
+		
+		<h:dataTable styleClass="table table-striped table-bordered table-hover table-condensed" 
+		value="#{usuarioBean.listaAtividade}" var="usuario" >
+		
+		<h:column>
+			<f:facet name="header">
+				<h:outputText value="Cog" />
+			</f:facet>
+				<h:outputText value="#{usuario.codigo}" />
+		</h:column>
+		
+				
+		<h:column>
+			<f:facet name="header">
+				<h:outputText value="Descricao" />
+			</f:facet>
+				<h:outputText value="#{usuario.descricao}" />
+		</h:column>
+		
+		<h:column>
+			<f:facet name="header">
+				<h:outputText value="Ministrante" />
+			</f:facet>
+				<h:outputText value="#{usuario.ministrante}" />
+		</h:column>
+		
+		<h:column>
+			<f:facet name="header">
+				<h:outputText value="N Part" />
+			</f:facet>
+				<h:outputText value="#{usuario.quantidadePart}" />
+		</h:column>
+		
+		<h:column>
+			<f:facet name="header">
+				<h:outputText value="Valor" />
+			</f:facet>
+				<h:outputText value="#{usuario.valor}" />
+		</h:column>
+		
+		</h:dataTable>
+		
+	</ui:define>
+
+</ui:composition>

@@ -1,0 +1,44 @@
+<ui:composition template="/WEB-INF/templates/geral.xhtml"
+		xmlns="http://www.w3.org/1999/xhtml"
+		xmlns:h="http://java.sun.com/jsf/html"
+		xmlns:f="http://java.sun.com/jsf/core"
+	 	xmlns:ui="http://java.sun.com/jsf/facelets">
+	 	
+	
+	<ui:define name="conteudo">
+		<h1>
+		<h:outputText value="#{msg.insert_actvity}"/>
+		</h1>
+		<legend></legend>
+		
+		<h:form>
+				
+		<h:panelGrid columns="3">
+			<h:outputLabel for="descricao" value="#{msg.description}" /> 
+			<h:inputText id="descricao" label="descricao" required="true" value="#{atividadeBean.atividade.descricao}" 
+			requiredMessage="O preenchimento do campo Nome e necessario!!!" class="input-xlarge" /> <h:message for="descricao" class="red"/>
+			
+			<h:outputLabel for="ministrante" value="#{msg.acolyte}" />
+			<h:inputText id="ministrante" label="ministrante" required="true" value="#{atividadeBean.atividade.ministrante}" 
+			requiredMessage="O preenchimento do campo Email e necessario!!!" class="input-xlarge"/> <h:message for="ministrante" class="red"/>
+			
+			<h:outputLabel for="quantparti" value="#{msg.participants}" />
+			<h:inputText id="quantparti" label="quantparti" required="true" maxlength="10" value="#{atividadeBean.atividade.quantidadePart}"	
+			requiredMessage="O campo Quantidade de Participantes e necessario!!!" class="input-xlarge"/> <h:message for="quantparti" class="red"/>
+			
+			<h:outputText for="valor" value="#{msg.value}" />
+			<h:inputText id="valor" label="valor" required="true" value="#{atividadeBean.atividade.valor}" class="input-xlarge" 
+			requeridMessage="O preenchimento do campo valor e necessario" /><h:message for="valor" class="red"/>
+			
+			
+		</h:panelGrid>
+		<div >
+			<h:commandButton id="Salvar" class="btn btn-inverse" value="#{msg.save}" action="#{atividadeBean.criarAtividade}" />
+		</div>
+		
+		</h:form>
+		<h:graphicImage id="img1" class="pull-right" library="img" name="at3.png" />
+		
+	</ui:define>
+
+</ui:composition>

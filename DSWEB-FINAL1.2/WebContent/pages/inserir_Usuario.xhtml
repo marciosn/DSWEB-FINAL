@@ -1,0 +1,73 @@
+<ui:composition template="/WEB-INF/templates/geral.xhtml"
+		xmlns="http://www.w3.org/1999/xhtml"
+		xmlns:h="http://java.sun.com/jsf/html"
+		xmlns:f="http://java.sun.com/jsf/core"
+	 	xmlns:ui="http://java.sun.com/jsf/facelets">
+	 <f:view locale="#{localeController.currentLocale}"/>	
+	
+	<ui:define name="conteudo">
+		<h1>
+		<h:outputText value="#{msg.register_user}"/>
+		</h1>
+		<legend></legend>
+		<h:panelGroup rendered="#{facesContext.validationFailed}">
+			<div class="alert alert-info">
+  			<button type="button" class="close" data-dismiss="alert" >
+  			<i class="icon-thumbs-up" >x</i>
+  			</button>
+  			<strong>Sinto Muito!!!</strong> O preenchimento dos campos e necessario ..
+  			
+		</div>
+		
+		</h:panelGroup>
+		<h:form>
+				
+		<h:panelGrid columns="3">
+			<h:outputLabel id="nomee" for="nome" value="#{msg.name}" /> 
+			<h:inputText id="nome" label="nome" required="true" value="#{usuarioBean.usuario.nome}" 
+			requiredMessage="O preenchimento do campo Nome e necessario!!!" class="input-xlarge" /> <h:message for="nome" class="red"/>
+			
+			<h:outputLabel id="emaill" for="email" value="#{msg.email}" />
+			<h:inputText id="email" label="email" required="true" value="#{usuarioBean.usuario.email}" 
+			requiredMessage="O preenchimento do campo Email e necessario!!!" class="input-xlarge"/> <h:message for="email" class="red"/>
+			
+			<h:outputLabel id="telefonee" for="telefone" value="#{msg.phone}" />
+			<h:inputText id="telefone" label="telefone" required="true" maxlength="10" value="#{usuarioBean.usuario.telefone}"	
+			requiredMessage="O campo e necessario!!!" class="input-xlarge"/> <h:message for="telefone" class="red"/>
+			
+			<h:outputLabel id="dataa" for="data" value="#{msg.date}" />
+			<h:inputText id="data" label="data" required="true" value="#{usuarioBean.usuario.data}" maxlength="10"
+			converterMessage="Data Invalida!!! O formato valido e Dia/Mes/Ano" class="input-xlarge">
+			<f:convertDateTime pattern="dd/MM/yyyy"/>
+			</h:inputText> <h:message for="data" class="red"/>
+			
+			<h:outputText id="enderecoo" for="endereco" value="#{msg.address}" />
+			<h:inputText id="endereco" label="endereco" required="true" value="#{usuarioBean.usuario.endereco}" class="input-xlarge" 
+			requeridMessage="O preenchimento do campo endereco e necessario" /><h:message for="endereco" class="red"/>
+			
+			<h:outputText id="cidadee" for="cidade" value="#{msg.city}" />
+			<h:inputText id="cidade" label="cidade" required="true" value="#{usuarioBean.usuario.cidade}" class="input-xlarge" 
+			requeridMessage="O preenchimento do campo cidade e necessario" /><h:message for="cidade" class="red"/>
+			
+			<h:outputText id="uff" for="uf" value="#{msg.uf}" />
+			<h:inputText id="uf" label="uf" required="true" value="#{usuarioBean.usuario.uf}" class="input-xlarge" 
+			requeridMessage="O preenchimento do campo UF e necessario" /><h:message for="uf" class="red"/>
+			
+			<h:outputText id="cpff" for="cpf" value="#{msg.cpf}" />
+			<h:inputText id="cpf" label="cpf" required="true" value="#{usuarioBean.usuario.cpf}" class="input-xlarge" 
+			requeridMessage="O preenchimento do campo CPF e necessario" /><h:message for="cpf" class="red"/>
+			
+			<h:outputText id="cepp" for="cep" value="#{msg.cep}" />
+			<h:inputText id="cep" label="cep" required="true" value="#{usuarioBean.usuario.cep}" class="input-xlarge" 
+			requeridMessage="O preenchimento do campo CEP e necessario" /><h:message for="cep" class="red"/>
+			
+		</h:panelGrid>
+		<div >
+			<h:commandButton id="Salvar" class="btn btn-primary" value="#{msg.save}" action="#{usuarioBean.inserirUsuario}" />
+		</div>
+		
+		</h:form>
+		<h:graphicImage id="img2" class="pull-right" library="img" name="u1.png" />
+	</ui:define>
+
+</ui:composition>
